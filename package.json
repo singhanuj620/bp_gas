@@ -11,8 +11,10 @@
     "api": "json-server --watch db.json --port 5000"
   },
   "dependencies": {
+    "i18next": "^23.15.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-i18next": "^15.0.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
