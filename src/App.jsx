@@ -1,7 +1,9 @@
 import BPLogo from "../public/bp-logo.svg";
 import { useTranslation } from "react-i18next";
+import usePwaInstallPrompt from "./usePwaInstallPrompt";
 
 const App = () => {
+  usePwaInstallPrompt();
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
