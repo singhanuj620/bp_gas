@@ -9,6 +9,7 @@ const App = () => {
   return (
     <div>
       <h1>Appp</h1>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <h1>{t("welcome")}</h1>
       <img src={BPLogo} alt="BP Logo" width="100" height="100" />
       <button onClick={() => changeLanguage("en")}>English</button>
