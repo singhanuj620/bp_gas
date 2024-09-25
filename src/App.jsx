@@ -1,11 +1,13 @@
 import "./App.css";
 import usePwaInstallPrompt from "./usePwaInstallPrompt";
-import { Navbar } from "./Components";
+import { Homepage, Navbar, Footer } from "./Components";
 const App = () => {
   usePwaInstallPrompt();
   return (
-    <div>
+    <div className="min-h-[100vh]">
       <Navbar />
+      <Homepage />
+      <Footer />
     </div>
   );
 };
