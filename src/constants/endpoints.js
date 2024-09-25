@@ -7,3 +7,7 @@ export const fetchAddressFromGoogle = (latitude, longitude) => {
 export const fetchInputAddressFromGoogle = (query) => {
   return `https://maps.googleapis.com/maps/api/place/autocomplete/json?input=${query}&key=${apiKey}`;
 };
+
+export const fetchPlaceIdDetail = (placeId) => {
+  return `https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeId}&key=${apiKey}`;
+};

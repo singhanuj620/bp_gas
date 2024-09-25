@@ -1,9 +1,11 @@
 import { useTranslation } from "react-i18next";
-import useDarkMode from "../../hooks/useDarkMode";
+import { useSelector, useDispatch } from "react-redux";
+import { toggleMode } from "../../features/darkMode/darkModeSlice";
 
 const Navbar = () => {
-  const [darkMode, toggleDarkMode] = useDarkMode();
+  const { isDarkMode: darkMode } = useSelector((state) => state.darkMode);
   const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
   const currentLanguage = i18n.language;
 
   const handleLanguageChange = (lang) => {
@@ -13,7 +15,7 @@ const Navbar = () => {
     <div
       className={`p-2 md:p-4 flex flex-row justify-between items-center ${
         darkMode ? "bg-black" : "bg-white"
-      } shadow-lg`}
+      } `}
     >
       <div className="flex flex-row items-center w-[60%] md:w-[30%]">
         <div>
@@ -41,7 +43,7 @@ const Navbar = () => {
             height="28"
           />
         </div>
-        <div className="cursor-pointer" onClick={() => toggleDarkMode()}>
+        <div className="cursor-pointer" onClick={() => dispatch(toggleMode())}>
           <img
             src={!darkMode ? "./icons/moon.svg" : "./icons/sun.svg"}
             alt="Theme Mode"

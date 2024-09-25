@@ -1,13 +1,63 @@
-import { BrowserLocation, InputLocation } from "../index";
+import Button from "../Button/Button";
+import UserLocation from "../UserLocation/UserLocation";
+import { useSelector, useDispatch } from "react-redux";
+import AddFilters from "../AddFilters/AddFilters";
+import { toggleMode, changeRadius } from "../../features/filters/filtersSlice";
 const Homepage = () => {
+  const dispatch = useDispatch();
+  const { showModal: addMoreFilters, radius } = useSelector(
+    (state) => state.filters
+  );
+  const { isDarkMode: darkMode } = useSelector((state) => state.darkMode);
   return (
-    <div className="min-h-[72vh] md:min-h-[73vh] flex justify-center items-center gap-10">
-      <div className="w-[50%] flex justify-center items-center">
-        <BrowserLocation />
+    <div
+      className={`min-h-[72vh] md:min-h-[73vh] flex justify-center items-center flex-col gap-10 ${
+        darkMode ? "bg-gray-900" : "bg-white"
+      }`}
+    >
+      <div className={`${addMoreFilters && "opacity-50"}`}>
+        <UserLocation />
       </div>
-      <div className="border-2 border-gray-300 h-[30vh]"></div>
-      <div className="w-[50%] flex justify-center items-center">
-        <InputLocation />
+      {addMoreFilters && <AddFilters />}
+      <div className={`${addMoreFilters && "opacity-50"}`}>
+        <div className="flex flex-col gap-2 justify-start items-start">
+          <div className="flex flex-row gap-2 justify-center items-center">
+            <div className={`${darkMode && "text-white"}`}>
+              Radius (in miles) :{" "}
+            </div>
+            <div className="flex flex-row gap-5">
+              <div
+                className={`${radius === 0.5 && "bg-gray-700 text-white "} ${
+                  darkMode && "text-white"
+                } rounded-md p-2 cursor-pointer`}
+                onClick={() => dispatch(changeRadius(0.5))}
+              >
+                0.5
+              </div>
+              <div
+                className={`${radius === 1 && "bg-gray-700 text-white"} ${
+                  darkMode && "text-white"
+                } rounded-md p-2 cursor-pointer`}
+                onClick={() => dispatch(changeRadius(1))}
+              >
+                1
+              </div>
+              <div
+                className={`${radius === 5 && "bg-gray-700 text-white"} ${
+                  darkMode && "text-white"
+                } rounded-md p-2 cursor-pointer`}
+                onClick={() => dispatch(changeRadius(5))}
+              >
+                5
+              </div>
+            </div>
+          </div>
+
+          <Button onClick={() => dispatch(toggleMode())}>More Filters</Button>
+        </div>
+        <div className="my-10">
+          <Button darkMode={darkMode}>Start Searching</Button>
+        </div>
       </div>
     </div>
   );

@@ -1,18 +1,27 @@
-const Footer = () => {
+/* eslint-disable react/prop-types */
+const Footer = ({ darkMode }) => {
   return (
-    <div className="flex flex-col md:flex-row p-2 md:p-4 justify-between">
+    <div
+      className={`flex flex-col md:flex-row p-2 md:p-4 justify-between ${
+        darkMode ? "bg-black" : "bg-white"
+      }`}
+    >
       <div className="flex flex-row md:justify-center items-center">
         <div>
           <img src="./bp-logo.svg" alt="BP Logo" width="30" height="30" />
         </div>
-        <div className="flex flex-col text-sm font-bold justify-center ml-4 text-gray-500">
+        <div
+          className={`flex flex-col text-sm font-bold justify-center ml-4 ${
+            darkMode ? "text-slate-400" : "text-gray-500"
+          }`}
+        >
           <div>BP p.l.c.</div>
           <div>Copyright © 1996-2024</div>
         </div>
       </div>
       <div className="mt-4 pl-2 md:mt-0 md:pl-0">
         <div className="flex flex-row gap-6">
-          <div>
+          <div className={`${darkMode ? "text-white" : "text-black"}`}>
             <a
               href="https://www.bp.com/en_gb/united-kingdom/home/privacy-statement.html"
               className="text-inherit no-underline"
@@ -21,7 +30,7 @@ const Footer = () => {
               Privacy statement
             </a>
           </div>
-          <div>
+          <div className={`${darkMode ? "text-white" : "text-black"}`}>
             <a
               href="https://www.bp.com/en_gb/united-kingdom/home/legal-notice.html"
               className="text-inherit no-underline"
@@ -30,7 +39,7 @@ const Footer = () => {
               Legal notice
             </a>
           </div>
-          <div>
+          <div className={`${darkMode ? "text-white" : "text-black"}`}>
             <a
               href="https://www.bp.com/en_gb/united-kingdom/home/who-we-are/contact-us.html"
               className="text-inherit no-underline"
@@ -41,14 +50,19 @@ const Footer = () => {
           </div>
         </div>
         <div className="flex flex-row gap-3 md:justify-end mt-4 md:mt-2">
-          <div className="cursor-pointer">
+          <div className={`cursor-pointer ${darkMode && "whitesvg"}`}>
             <img src="./icons/yt.svg" alt="YT Logo" width="20" height="20" />
           </div>
-          <div className="cursor-pointer">
+          <div className={`cursor-pointer ${darkMode && "whitesvg"}`}>
             <img src="./icons/fb.svg" alt="FB Logo" width="20" height="20" />
           </div>
-          <div className="cursor-pointer">
-            <img src="./icons/insta.svg" alt="INSTA Logo" width="20" height="20" />
+          <div className={`cursor-pointer ${darkMode && "whitesvg"}`}>
+            <img
+              src="./icons/insta.svg"
+              alt="INSTA Logo"
+              width="20"
+              height="20"
+            />
           </div>
         </div>
       </div>
