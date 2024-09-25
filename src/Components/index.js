@@ -5,6 +5,7 @@ import InputLocation from "./InputLocation/InputLocation";
 import Navbar from "./Navbar/Navbar";
 import UserLocation from "./UserLocation/UserLocation";
 import AddFilters from "./AddFilters/AddFilters";
+import Result from "./Results/Results";
 
 export {
   AddFilters,
@@ -14,4 +15,5 @@ export {
   UserLocation,
   Navbar,
   Footer,
+  Result,
 };
