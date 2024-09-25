@@ -31,4 +31,13 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    proxy: {
+      "/.netlify/functions": {
+        target: "http://localhost:8888", // Local Netlify function server
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/.netlify\/functions/, ""),
+      },
+    },
+  },
 });
