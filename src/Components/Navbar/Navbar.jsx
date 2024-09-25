@@ -11,23 +11,28 @@ const Navbar = () => {
   };
   return (
     <div
-      className={`p-4 border-2 border-rose-500 flex flex-row justify-between items-center ${
+      className={`p-2 md:p-4 flex flex-row justify-between items-center ${
         darkMode ? "bg-black" : "bg-white"
-      }`}
+      } shadow-lg`}
     >
-      <div className="flex flex-row items-center w-[30%]">
+      <div className="flex flex-row items-center w-[60%] md:w-[30%]">
         <div>
-          <img src="./bp-logo.svg" alt="BP Logo" width="50" height="50" />
+          <a href="/" className="text-inherit no-underline">
+            <img src="./bp-logo.svg" alt="BP Logo" width="50" height="50" />
+          </a>
         </div>
+
         <div
-          className={`text-base md:text-2xl ml-6 font-semibold ${
+          className={`text-lg md:text-2xl ml-4 md:ml-6 font-semibold ${
             darkMode ? "text-white" : "text-black"
           }`}
         >
-          {t("title")}
+          <a href="/" className="text-inherit no-underline">
+            {t("title")}
+          </a>
         </div>
       </div>
-      <div className="flex flex-row justify-center items-center gap-6">
+      <div className="flex flex-row justify-center items-center gap-2 md:gap-6">
         <div className="cursor-pointer" onClick={() => toggleDarkMode()}>
           <img
             src={!darkMode ? "./icons/moon.svg" : "./icons/sun.svg"}
