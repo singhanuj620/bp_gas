@@ -19,7 +19,7 @@ const InputLocation = () => {
     }
 
     try {
-      const response = await axios.post("/.netlify/functions/proxy", {
+      const response = await axios.post(import.meta.env.VITE_PROXY_URL, {
         url: fetchInputAddressFromGoogle(query),
       });
 
@@ -35,7 +35,7 @@ const InputLocation = () => {
 
   const fetchPlaceDetails = async (placeId) => {
     try {
-      const response = await axios.post("/.netlify/functions/proxy", {
+      const response = await axios.post(import.meta.env.VITE_PROXY_URL, {
         url: fetchPlaceIdDetail(placeId),
       });
 
