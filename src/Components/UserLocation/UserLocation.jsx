@@ -10,7 +10,7 @@ const UserLocation = () => {
       <div
         className={`border-2 ${
           darkMode ? "border-white" : "border-gray-300"
-        } md:h-[30vh] w-[50vw] md:w-0`}
+        } md:h-[30vh] w-[50vw] md:w-0 mt-[-5vh] md:mt-0`}
       ></div>
       <div className="w-[90%] md:w-[50%] h-full flex justify-center items-center">
         <InputLocation />

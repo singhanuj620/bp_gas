@@ -1,15 +1,17 @@
 import "./App.css";
 import usePwaInstallPrompt from "./usePwaInstallPrompt";
-import { Homepage, Navbar, Footer } from "./Components";
+import { Homepage, Navbar, Footer, Result } from "./Components";
 import { useSelector } from "react-redux";
+import { allRoutes } from "./constants/allRoutes";
 const App = () => {
-  const { isDarkMode } = useSelector((state) => state.darkMode);
+  const { path } = useSelector((state) => state.path);
   usePwaInstallPrompt();
   return (
     <div className="min-h-[100vh]">
       <Navbar />
-      <Homepage />
-      <Footer darkMode={isDarkMode} />
+      {path === allRoutes.homepage && <Homepage />}
+      {path === allRoutes.results && <Result />}
+      <Footer />
     </div>
   );
 };

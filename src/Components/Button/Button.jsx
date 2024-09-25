@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useSelector } from "react-redux";
-const Button = ({ children, type, outline, onClick }) => {
+const Button = ({ children, disabled = false, outline, onClick }) => {
   const { isDarkMode: darkMode } = useSelector((state) => state.darkMode);
   return (
     <div
@@ -8,7 +8,9 @@ const Button = ({ children, type, outline, onClick }) => {
         darkMode ? "text-black border-white" : "text-black border-black"
       } ${
         outline ? "" : darkMode ? "bg-yellow-400" : "bg-green-400"
-      } p-2 rounded-lg cursor-pointer border-2 flex justify-center`}
+      } p-2 rounded-lg ${
+        disabled ? "cursor-not-allowed" : "cursor-pointer"
+      } border-2 flex justify-center`}
       onClick={onClick}
     >
       {children}

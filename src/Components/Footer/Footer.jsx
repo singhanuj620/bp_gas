@@ -1,5 +1,6 @@
-/* eslint-disable react/prop-types */
-const Footer = ({ darkMode }) => {
+import { useSelector } from "react-redux";
+const Footer = () => {
+  const { isDarkMode: darkMode } = useSelector((state) => state.darkMode);
   return (
     <div
       className={`flex flex-col md:flex-row p-2 md:p-4 justify-between ${

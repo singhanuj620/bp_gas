@@ -3,11 +3,16 @@ import UserLocation from "../UserLocation/UserLocation";
 import { useSelector, useDispatch } from "react-redux";
 import AddFilters from "../AddFilters/AddFilters";
 import { toggleMode, changeRadius } from "../../features/filters/filtersSlice";
+import { setpath } from "../../features/path/pathSlice";
+import { allRoutes } from "../../constants/allRoutes";
 const Homepage = () => {
   const dispatch = useDispatch();
-  const { showModal: addMoreFilters, radius } = useSelector(
-    (state) => state.filters
-  );
+  const {
+    showModal: addMoreFilters,
+    radius,
+    filters,
+  } = useSelector((state) => state.filters);
+  const { latitude, longitude } = useSelector((state) => state.location);
   const { isDarkMode: darkMode } = useSelector((state) => state.darkMode);
   return (
     <div
@@ -53,10 +58,23 @@ const Homepage = () => {
             </div>
           </div>
 
-          <Button onClick={() => dispatch(toggleMode())}>More Filters</Button>
+          <Button onClick={() => dispatch(toggleMode())}>
+            {filters.open24 ||
+            filters.hotFood ||
+            filters.convinienceStore ||
+            filters.bpFuelCards
+              ? "Edit Filters"
+              : "Apply Filters"}
+          </Button>
         </div>
         <div className="my-10">
-          <Button darkMode={darkMode}>Start Searching</Button>
+          <Button
+            darkMode={darkMode}
+            disabled={!latitude || !longitude}
+            onClick={() => dispatch(setpath({ path: allRoutes.results }))}
+          >
+            Start Searching
+          </Button>
         </div>
       </div>
     </div>
