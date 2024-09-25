@@ -19,7 +19,9 @@ const InputLocation = () => {
     }
 
     try {
-      const response = await axios.get(fetchInputAddressFromGoogle(query));
+      const response = await axios.post("/.netlify/functions/proxy", {
+        url: fetchInputAddressFromGoogle(query),
+      });
 
       if (response.data.status === "OK") {
         setSuggestions(response.data.predictions);
@@ -33,7 +35,9 @@ const InputLocation = () => {
 
   const fetchPlaceDetails = async (placeId) => {
     try {
-      const response = await axios.get(fetchPlaceIdDetail(placeId));
+      const response = await axios.post("/.netlify/functions/proxy", {
+        url: fetchPlaceIdDetail(placeId),
+      });
 
       if (response.data.status === "OK") {
         const { lat, lng } = response.data.result.geometry.location;
