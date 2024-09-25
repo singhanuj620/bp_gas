@@ -32,7 +32,15 @@ const Navbar = () => {
           </a>
         </div>
       </div>
-      <div className="flex flex-row justify-center items-center gap-2 md:gap-6">
+      <div className="flex flex-row justify-center items-center gap-4 md:gap-6">
+        <div className="cursor-pointer" onClick={() => {}}>
+          <img
+            src={!darkMode ? "./icons/heart.svg" : "./icons/heartred.svg"}
+            alt="Fav"
+            width="28"
+            height="28"
+          />
+        </div>
         <div className="cursor-pointer" onClick={() => toggleDarkMode()}>
           <img
             src={!darkMode ? "./icons/moon.svg" : "./icons/sun.svg"}
