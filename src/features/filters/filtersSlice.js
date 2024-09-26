@@ -3,10 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   showModal: false,
   filters: {
-    open24: true,
-    convinienceStore: true,
-    hotFood: true,
-    bpFuelCards: true,
+    open24: false,
+    convinienceStore: false,
+    hotFood: false,
+    bpFuelCards: false,
   },
   radius: 0.5,
   filterUpdatedCount: 0,
