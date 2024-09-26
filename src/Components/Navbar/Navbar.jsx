@@ -1,6 +1,8 @@
 import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleMode } from "../../features/darkMode/darkModeSlice";
+import { setpath } from "../../features/path/pathSlice";
+import { allRoutes } from "../../constants/allRoutes";
 
 const Navbar = () => {
   const { isDarkMode: darkMode } = useSelector((state) => state.darkMode);
@@ -35,7 +37,10 @@ const Navbar = () => {
         </div>
       </div>
       <div className="flex flex-row justify-center items-center gap-4 md:gap-6">
-        <div className="cursor-pointer" onClick={() => {}}>
+        <div
+          className="cursor-pointer"
+          onClick={() => dispatch(setpath({ path: allRoutes.fav }))}
+        >
           <img
             src={!darkMode ? "./icons/heart.svg" : "./icons/heartred.svg"}
             alt="Fav"
