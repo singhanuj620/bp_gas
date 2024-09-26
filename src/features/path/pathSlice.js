@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { allRoutes } from "../../constants/allRoutes";
 const initialState = {
-  path: allRoutes.results,
+  path: allRoutes.homepage,
 };
 
 export const pathSlice = createSlice({
