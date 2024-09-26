@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import React from "react";
 import { useSelector } from "react-redux";
 const Button = ({ children, disabled = false, outline, onClick }) => {
   const { isDarkMode: darkMode } = useSelector((state) => state.darkMode);

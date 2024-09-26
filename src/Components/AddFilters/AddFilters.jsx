@@ -1,3 +1,4 @@
+import React from "react";
 import Button from "../Button/Button";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -40,6 +41,7 @@ const AddFilters = () => {
         <div className="flex flex-col gap-3">
           <div>
             <input
+              data-testid="open24"
               type="checkbox"
               checked={filters.open24}
               onChange={() => dispatch(handleFilterChange({ type: "open24" }))}
@@ -47,6 +49,7 @@ const AddFilters = () => {
           </div>
           <div>
             <input
+              data-testid="convenienceStore"
               type="checkbox"
               checked={filters.convinienceStore}
               onChange={() =>
@@ -56,6 +59,7 @@ const AddFilters = () => {
           </div>
           <div>
             <input
+              data-testid="hotFood"
               type="checkbox"
               disabled={!filters.convinienceStore}
               checked={filters.convinienceStore && filters.hotFood}
@@ -64,6 +68,7 @@ const AddFilters = () => {
           </div>
           <div>
             <input
+              data-testid="bpFuelCards"
               type="checkbox"
               checked={filters.bpFuelCards}
               onChange={() =>

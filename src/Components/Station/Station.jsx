@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import React from "react";
 import { useTranslation } from "react-i18next";
 const Station = ({ stationData, index, darkMode, handleFav, isFav }) => {
   const { t } = useTranslation();
@@ -34,6 +35,7 @@ const Station = ({ stationData, index, darkMode, handleFav, isFav }) => {
         <div className="font-semibold text-2xl">{title}</div>
         <div className="flex flex-row justify-center items-center gap-5">
           <div
+            data-testid="favIcon"
             className={`cursor-pointer ${darkMode && "whitesvg"}`}
             onClick={() => handleFav(stationId)}
           >
@@ -72,7 +74,9 @@ const Station = ({ stationData, index, darkMode, handleFav, isFav }) => {
       </div>
       <div className="flex flex-row justify-between px-2 italic">
         <div>{t("distance")}</div>
-        <div>{distance} {t("inMiles")}</div>
+        <div>
+          {distance} {t("inMiles")}
+        </div>
       </div>
       <div className="flex flex-row justify-between px-2 italic">
         <div>{t("rating")}</div>
