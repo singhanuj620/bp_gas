@@ -1,1 +1,1 @@
-export const isDarkMode = "isDarkMode";
+export const favoriteBPStations = 'favoriteBPStations';

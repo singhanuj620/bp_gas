@@ -6,8 +6,12 @@ import Navbar from "./Navbar/Navbar";
 import UserLocation from "./UserLocation/UserLocation";
 import AddFilters from "./AddFilters/AddFilters";
 import Result from "./Results/Results";
+import Pills from "./Pills/Pills";
+import AppliedFilters from "./AppliedFilters/AppliedFilters";
 
 export {
+  AppliedFilters,
+  Pills,
   AddFilters,
   BrowserLocation,
   Homepage,
