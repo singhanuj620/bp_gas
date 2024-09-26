@@ -34,7 +34,7 @@ export const filtersSlice = createSlice({
     changeRadius: (state, action) => {
       state.radius = action.payload;
     },
-    toggleFilerUpdated: (state) => {
+    toggleFilterUpdated: (state) => {
       state.filterUpdatedCount = state.filterUpdatedCount + 1;
     },
   },
@@ -45,7 +45,7 @@ export const {
   toggleMode,
   handleFilterChange,
   changeRadius,
-  toggleFilerUpdated,
+  toggleFilterUpdated,
 } = filtersSlice.actions;
 
 export default filtersSlice.reducer;

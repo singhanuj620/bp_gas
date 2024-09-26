@@ -1,3 +1,4 @@
+import React from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleMode } from "../../features/darkMode/darkModeSlice";
@@ -74,6 +75,7 @@ const Navbar = () => {
               onChange={(e) => handleLanguageChange(e.target.value)}
             >
               <option
+                data-testid="en"
                 value="en"
                 className={`${
                   darkMode ? "bg-black text-white" : "bg-white text-black"
@@ -81,7 +83,11 @@ const Navbar = () => {
               >
                 English
               </option>
-              <option value="de" className="bg-white text-black">
+              <option
+                value="de"
+                className="bg-white text-black"
+                data-testid="de"
+              >
                 German
               </option>
             </select>

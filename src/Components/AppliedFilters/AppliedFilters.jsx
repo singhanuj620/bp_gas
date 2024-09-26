@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import React from "react";
 import Pills from "../Pills/Pills";
 import { useSelector, useDispatch } from "react-redux";
 import AddFilters from "../AddFilters/AddFilters";
@@ -11,7 +12,7 @@ import { useEffect, useState } from "react";
 import { favoriteBPStations } from "../../constants/localStorage";
 import { allRoutes } from "../../constants/allRoutes";
 import Station from "../Station/Station";
-import { toggleFilerUpdated } from "../../features/filters/filtersSlice";
+import { toggleFilterUpdated } from "../../features/filters/filtersSlice";
 import { useTranslation } from "react-i18next";
 const AppliedFilters = ({ stationDataList }) => {
   const { t } = useTranslation();
@@ -65,7 +66,7 @@ const AppliedFilters = ({ stationDataList }) => {
         );
       }
     }
-    dispatch(toggleFilerUpdated());
+    dispatch(toggleFilterUpdated());
   };
 
   const isStationFav = (id) => {
@@ -73,7 +74,7 @@ const AppliedFilters = ({ stationDataList }) => {
       JSON.parse(localStorage.getItem(favoriteBPStations)) || [];
     return existingFavorites.find((fav) => fav.stationId === id);
   };
-  const filtersData = Object.keys(filters).filter((key) => filters[key]);
+  const filtersData = filters && Object.keys(filters).filter((key) => filters[key]);
   return (
     <div className="min-h-[73vh]">
       {path === allRoutes.results && (

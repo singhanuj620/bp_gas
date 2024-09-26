@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserLocation, InputLocation } from "../index";
 import { useSelector } from "react-redux";
 const UserLocation = () => {
