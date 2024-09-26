@@ -8,20 +8,19 @@ import {
   handleFilterChange,
 } from "../../features/filters/filtersSlice";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { favoriteBPStations } from "../../constants/localStorage";
 import { allRoutes } from "../../constants/allRoutes";
 import Station from "../Station/Station";
 import { toggleFilerUpdated } from "../../features/filters/filtersSlice";
+import { useTranslation } from "react-i18next";
 const AppliedFilters = ({ stationDataList }) => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const [stationData, setStationData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const {
-    showModal: addMoreFilters,
-    radius,
-    filters,
-  } = useSelector((state) => state.filters);
+  const { showModal: addMoreFilters, filters } = useSelector(
+    (state) => state.filters
+  );
   const { path } = useSelector((state) => state.path);
   const { isDarkMode: darkMode } = useSelector((state) => state.darkMode);
   useEffect(() => {
@@ -29,7 +28,7 @@ const AppliedFilters = ({ stationDataList }) => {
     setTimeout(() => {
       setStationData(stationDataList);
       setIsLoading(false);
-    }, 2000);
+    }, 1000);
     // fetchStations();
   }, [stationDataList]);
   const handleFav = (id) => {
@@ -77,30 +76,32 @@ const AppliedFilters = ({ stationDataList }) => {
   const filtersData = Object.keys(filters).filter((key) => filters[key]);
   return (
     <div className="min-h-[73vh]">
-      <div className="flex flex-col md:flex-row gap-5 justify-center items-center bg-green-400 p-2">
-        {addMoreFilters && <AddFilters />}
-        <div className="font-bold text-xl">Applied Filters : </div>
-        <div className="flex flex-wrap flex-row gap-5 md:justify-center md:items-center">
-          {filtersData.length === 0 && (
-            <div className="italic">
-              No filters applied.{" "}
-              <span
-                className="italic underline cursor-pointer"
-                onClick={() => dispatch(toggleMode())}
-              >
-                Click to Apply
-              </span>
-            </div>
-          )}
-          {filtersData.map((filter, index) => (
-            <Pills
-              text={filter}
-              key={index}
-              onClick={() => dispatch(handleFilterChange({ type: filter }))}
-            />
-          ))}
+      {path === allRoutes.results && (
+        <div className="flex flex-col md:flex-row gap-5 justify-center items-center bg-green-400 p-2">
+          {addMoreFilters && <AddFilters />}
+          <div className="font-bold text-xl">{t("appliedFilters")} </div>
+          <div className="flex flex-wrap flex-row gap-5 md:justify-center md:items-center">
+            {filtersData.length === 0 && (
+              <div className="italic">
+                {t("noFiltersApplied")}{" "}
+                <span
+                  className="italic underline cursor-pointer"
+                  onClick={() => dispatch(toggleMode())}
+                >
+                  {t("clickToApply")}
+                </span>
+              </div>
+            )}
+            {filtersData.map((filter, index) => (
+              <Pills
+                text={filter}
+                key={index}
+                onClick={() => dispatch(handleFilterChange({ type: filter }))}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
       <div
         className={`min-h-[65vh] p-4 ${darkMode ? "bg-gray-800" : "bg-white"}`}
       >
@@ -115,7 +116,7 @@ const AppliedFilters = ({ stationDataList }) => {
               data-testid="loader"
             />
             <div className={`${darkMode ? "text-white" : "text-black"}`}>
-              Fetching Stations
+              {t("fetchingStations")}
             </div>
           </div>
         )}
@@ -125,7 +126,7 @@ const AppliedFilters = ({ stationDataList }) => {
               darkMode && "text-white"
             } flex justify-center items-center min-h-[62vh]`}
           >
-            No Stations Found
+            {t("noStationsFound")}
           </div>
         )}
         {!isLoading && stationData.length > 0 && (

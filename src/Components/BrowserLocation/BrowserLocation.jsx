@@ -4,8 +4,9 @@ import MoonLoader from "react-spinners/MoonLoader";
 import { fetchAddressFromGoogle } from "../../constants/endpoints";
 import { useSelector, useDispatch } from "react-redux";
 import { setLocation } from "../../features/location/locationSlice";
-
+import { useTranslation } from "react-i18next";
 const BrowserLocation = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { isDarkMode: darkMode } = useSelector((state) => state.darkMode);
   const [errorMsg, setErrorMsg] = useState(null);
@@ -22,11 +23,11 @@ const BrowserLocation = () => {
         setErrorMsg(null);
       } else {
         setLoading(false);
-        setErrorMsg("Error fetching address");
+        setErrorMsg(t("errorFetchingAddress"));
         console.error("Geocoding error ", data.status);
       }
     } catch (error) {
-      setErrorMsg("Error fetching address");
+      setErrorMsg(t("errorFetchingAddress"));
       setLoading(false);
       console.error("Error fetching address:", error);
     }
@@ -51,7 +52,7 @@ const BrowserLocation = () => {
       } else {
         setLoading(false);
         console.error("Geolocation is not supported by this browser.");
-        setErrorMsg("Geolocation is not supported by this browser.");
+        setErrorMsg(t("geoLoacationNotSupported"));
       }
     };
 
@@ -71,7 +72,7 @@ const BrowserLocation = () => {
             data-testid="loader"
           />
           <div className={`${darkMode ? "text-white" : "text-black"}`}>
-            Fetching location
+            {t("fetchingLocation")}
           </div>
         </div>
       )}
@@ -101,7 +102,7 @@ const BrowserLocation = () => {
                 darkMode ? "text-white" : "text-black"
               }`}
             >
-              Current Location
+              {t("currentLocation")}
             </div>
           </div>
           <div

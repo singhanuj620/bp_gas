@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
+import { useTranslation } from "react-i18next";
 const Station = ({ stationData, index, darkMode, handleFav, isFav }) => {
+  const { t } = useTranslation();
   const {
     stationId,
     title,
@@ -69,11 +71,11 @@ const Station = ({ stationData, index, darkMode, handleFav, isFav }) => {
         </div>
       </div>
       <div className="flex flex-row justify-between px-2 italic">
-        <div>Distance</div>
-        <div>{distance} miles</div>
+        <div>{t("distance")}</div>
+        <div>{distance} {t("inMiles")}</div>
       </div>
       <div className="flex flex-row justify-between px-2 italic">
-        <div>Rating</div>
+        <div>{t("rating")}</div>
         <div className={`flex flex-row ${darkMode && "whitesvg"}`}>
           {[...Array(full_star)].map((_, index) => (
             <img
@@ -96,11 +98,11 @@ const Station = ({ stationData, index, darkMode, handleFav, isFav }) => {
         </div>
       </div>
       <div className="flex flex-row justify-between px-2 italic">
-        <div>Contact</div>
+        <div>{t("contact")}</div>
         <div className="font-medium">{contact}</div>
       </div>
       <div className="flex flex-row justify-between px-2 italic">
-        <div>Address</div>
+        <div>{t("address")}</div>
         <div className="font-medium">{address}</div>
       </div>
     </div>
