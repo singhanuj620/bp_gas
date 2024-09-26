@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <div
       className={`p-2 md:p-4 flex flex-row justify-between items-center ${
-        darkMode ? "bg-black" : "bg-white"
+        darkMode ? "bg-black" : "bg-slate-200"
       } `}
     >
       <div className="flex flex-row items-center w-[60%] md:w-[30%]">

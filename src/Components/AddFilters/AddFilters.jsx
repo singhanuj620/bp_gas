@@ -5,8 +5,10 @@ import {
   handleFilterChange,
   toggleMode,
 } from "../../features/filters/filtersSlice";
+import { useTranslation } from "react-i18next";
 const AddFilters = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { filters } = useSelector((state) => state.filters);
   const { isDarkMode: darkMode } = useSelector((state) => state.darkMode);
   const handleApplyFilter = () => {
@@ -26,14 +28,14 @@ const AddFilters = () => {
         <img src="./icons/cross.svg" alt="modal close" width="30" height="30" />
       </div>
       <div className={`text-2xl font-semibold ${darkMode && "text-white"}`}>
-        Choose Filters :
+        {t("chooseFilters")}
       </div>
       <div className="flex flex-row gap-10 justify-between items-center mt-6">
         <div className={`flex flex-col gap-3 ${darkMode && "text-white"}`}>
-          <div>Open 24/7</div>
-          <div>Convinience Store available</div>
-          <div>Store prepared and serve hot food</div>
-          <div>Accept bp fuel cards</div>
+          <div>{t("open24")}</div>
+          <div>{t("convenienceStore")}</div>
+          <div>{t("hotFood")}</div>
+          <div>{t("bpFuelCards")}</div>
         </div>
         <div className="flex flex-col gap-3">
           <div>
@@ -75,11 +77,13 @@ const AddFilters = () => {
       <div className="mt-6">
         <div
           onClick={() => dispatch(clearAllFilters())}
-          className={`cursor-pointer font-thin ${darkMode && 'text-white'} mb-2`}
+          className={`cursor-pointer font-thin ${
+            darkMode && "text-white"
+          } mb-2`}
         >
-          Clear All Filters
+          {t("clearAllFilters")}
         </div>
-        <Button onClick={() => handleApplyFilter()}>Apply Filters</Button>
+        <Button onClick={() => handleApplyFilter()}>{t("applyFilters")}</Button>
       </div>
     </div>
   );

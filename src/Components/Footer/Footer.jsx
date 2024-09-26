@@ -1,10 +1,12 @@
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 const Footer = () => {
+  const { t } = useTranslation();
   const { isDarkMode: darkMode } = useSelector((state) => state.darkMode);
   return (
     <div
       className={`flex flex-col md:flex-row p-2 md:p-4 justify-between ${
-        darkMode ? "bg-black" : "bg-white"
+        darkMode ? "bg-black" : "bg-slate-200"
       }`}
     >
       <div className="flex flex-row md:justify-center items-center">
@@ -17,7 +19,7 @@ const Footer = () => {
           }`}
         >
           <div>BP p.l.c.</div>
-          <div>Copyright © 1996-2024</div>
+          <div>{t("copyRight")}</div>
         </div>
       </div>
       <div className="mt-4 pl-2 md:mt-0 md:pl-0">
@@ -28,7 +30,7 @@ const Footer = () => {
               className="text-inherit no-underline"
               target="_blank"
             >
-              Privacy statement
+              {t("privacyStatement")}
             </a>
           </div>
           <div className={`${darkMode ? "text-white" : "text-black"}`}>
@@ -37,7 +39,7 @@ const Footer = () => {
               className="text-inherit no-underline"
               target="_blank"
             >
-              Legal notice
+              {t("legalNotice")}
             </a>
           </div>
           <div className={`${darkMode ? "text-white" : "text-black"}`}>
@@ -46,7 +48,7 @@ const Footer = () => {
               className="text-inherit no-underline"
               target="_blank"
             >
-              Contact us
+              {t("conatctUs")}
             </a>
           </div>
         </div>

@@ -5,7 +5,9 @@ import AddFilters from "../AddFilters/AddFilters";
 import { toggleMode, changeRadius } from "../../features/filters/filtersSlice";
 import { setpath } from "../../features/path/pathSlice";
 import { allRoutes } from "../../constants/allRoutes";
+import { useTranslation } from "react-i18next";
 const Homepage = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const {
     showModal: addMoreFilters,
@@ -28,7 +30,7 @@ const Homepage = () => {
         <div className="flex flex-col gap-2 justify-start items-start">
           <div className="flex flex-row gap-2 justify-center items-center">
             <div className={`${darkMode && "text-white"}`}>
-              Radius (in miles) :{" "}
+              {t("radius")} ({t("inMiles")}) :{" "}
             </div>
             <div className="flex flex-row gap-5">
               <div
@@ -63,8 +65,8 @@ const Homepage = () => {
             filters.hotFood ||
             filters.convinienceStore ||
             filters.bpFuelCards
-              ? "Edit Filters"
-              : "Apply Filters"}
+              ? t("editFilters")
+              : t("moreFilters")}
           </Button>
         </div>
         <div className="my-10">
@@ -73,7 +75,7 @@ const Homepage = () => {
             disabled={!latitude || !longitude}
             onClick={() => dispatch(setpath({ path: allRoutes.results }))}
           >
-            Start Searching
+            {t("startSearch")}
           </Button>
         </div>
       </div>

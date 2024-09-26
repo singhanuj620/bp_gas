@@ -6,7 +6,9 @@ import {
 } from "../../constants/endpoints";
 import { useSelector, useDispatch } from "react-redux";
 import { setLocation } from "../../features/location/locationSlice";
+import { useTranslation } from "react-i18next";
 const InputLocation = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const { isDarkMode: darkMode } = useSelector((state) => state.darkMode);
   const [input, setInput] = useState("");
@@ -61,7 +63,7 @@ const InputLocation = () => {
     <div className=" max-h-[65vh]">
       <div className="md:w-[30vw] flex flex-col gap-5">
         <div className={`${darkMode ? "text-white" : "text-black"}`}>
-          OR Enter an address to get suggestions
+          {t("enterManually")}
         </div>
         <div>
           <input

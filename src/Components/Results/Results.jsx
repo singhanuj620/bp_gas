@@ -9,6 +9,7 @@ import { allRoutes } from "../../constants/allRoutes";
 const Results = () => {
   const { filterUpdatedCount } = useSelector((state) => state.filters);
   const { path: currentPath } = useSelector((state) => state.path);
+  const { isDarkMode: darkMode } = useSelector((state) => state.darkMode);
   const [stationList, setStationList] = useState(stationDataList || []);
   useEffect(() => {
     if (currentPath === allRoutes.fav) {
@@ -19,7 +20,7 @@ const Results = () => {
   }, [filterUpdatedCount, currentPath]);
 
   return (
-    <div>
+    <div className={`${darkMode ? "bg-gray-800" : "bg-white"}`}>
       <AppliedFilters stationDataList={stationList} />
     </div>
   );
