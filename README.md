@@ -41,6 +41,29 @@
    ```
 2. Browser will open the local dev
 
+## Screenshots
+
+![image](https://github.com/user-attachments/assets/d5fd9bde-02e0-4b5f-8978-6709e7aa7963)
+
+![image](https://github.com/user-attachments/assets/1fbf420e-3818-4ffd-b6ea-d6b8111cd6d4)
+
+![image](https://github.com/user-attachments/assets/6fdeecb4-a577-4a68-941d-2ed3679e3c69)
+
+![image](https://github.com/user-attachments/assets/eb5d1930-9bca-4379-b64c-4f6dc93bb5ad)
+
+![image](https://github.com/user-attachments/assets/e6a80942-226a-459a-a40f-faf89ff1e6ca)
+
+![image](https://github.com/user-attachments/assets/e0e3588f-dd22-422d-a931-caeb18b0b872)
+
+![image](https://github.com/user-attachments/assets/94d0a53f-823f-468e-8687-6ec0fbbf59f1)
+
+![image](https://github.com/user-attachments/assets/53817472-35c7-4ead-9f2b-f9aca16aec95)
+
+![image](https://github.com/user-attachments/assets/32fd5390-eb6f-4ffe-a3f5-f539f1e2d5ef)
+
+![image](https://github.com/user-attachments/assets/0d990f2e-6ca8-44da-9aca-477d12f73d64)
+
+
 ## Contributing
 
 1. Fork the repository
