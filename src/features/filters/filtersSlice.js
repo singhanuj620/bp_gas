@@ -12,6 +12,7 @@ const initialState = {
   filterUpdatedCount: 0,
 };
 
+// filtersSlice is a slice of the Redux store that contains the filter state and actions to update the filters.
 export const filtersSlice = createSlice({
   name: "filters",
   initialState,

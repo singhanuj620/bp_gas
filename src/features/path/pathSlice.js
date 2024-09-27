@@ -4,6 +4,7 @@ const initialState = {
   path: allRoutes.homepage,
 };
 
+// pathSlice is a slice of the Redux store that contains the path state and actions to update the path.
 export const pathSlice = createSlice({
   name: "path",
   initialState,

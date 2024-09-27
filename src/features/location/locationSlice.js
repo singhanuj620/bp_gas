@@ -5,6 +5,7 @@ const initialState = {
   longitude: 0,
 };
 
+// locationSlice is a slice of the Redux store that contains the location state and actions to update the location.
 export const locationSlice = createSlice({
   name: "location",
   initialState,

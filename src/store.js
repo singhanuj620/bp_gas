@@ -5,6 +5,7 @@ import locationReducer from "./features/location/locationSlice";
 import pathReducer from "./features/path/pathSlice";
 import stationDataReducer from "./features/stationData/stationDataSlice";
 
+// store is the Redux store that contains the reducers for dark mode, filters, location, path, and station data.
 export const store = configureStore({
   reducer: {
     darkMode: darkModeReducer,

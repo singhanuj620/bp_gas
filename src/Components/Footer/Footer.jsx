@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+
+// Footer component displays the footer of the application.
 const Footer = () => {
   const { t } = useTranslation();
   const { isDarkMode: darkMode } = useSelector((state) => state.darkMode);
@@ -55,18 +57,30 @@ const Footer = () => {
         </div>
         <div className="flex flex-row gap-3 md:justify-end mt-4 md:mt-2">
           <div className={`cursor-pointer ${darkMode && "whitesvg"}`}>
-            <img src="./icons/yt.svg" alt="YT Logo" width="20" height="20" />
+            <a
+              href="https://www.youtube.com/channel/UC9m-Yl4kfv8nIriI7Ry8CxA"
+              target="_blank"
+            >
+              <img src="./icons/yt.svg" alt="YT Logo" width="20" height="20" />
+            </a>
           </div>
           <div className={`cursor-pointer ${darkMode && "whitesvg"}`}>
-            <img src="./icons/fb.svg" alt="FB Logo" width="20" height="20" />
+            <a
+              href="https://www.facebook.com/bpuk/?brand_redir=345463602161853"
+              target="_blank"
+            >
+              <img src="./icons/fb.svg" alt="FB Logo" width="20" height="20" />
+            </a>
           </div>
           <div className={`cursor-pointer ${darkMode && "whitesvg"}`}>
-            <img
-              src="./icons/insta.svg"
-              alt="INSTA Logo"
-              width="20"
-              height="20"
-            />
+            <a href="https://www.instagram.com/bp_plc/" target="_blank">
+              <img
+                src="./icons/insta.svg"
+                alt="INSTA Logo"
+                width="20"
+                height="20"
+              />
+            </a>
           </div>
         </div>
       </div>

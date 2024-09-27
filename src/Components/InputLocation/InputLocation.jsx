@@ -7,6 +7,8 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { setLocation } from "../../features/location/locationSlice";
 import { useTranslation } from "react-i18next";
+
+// InputLocation component allows users to enter an address manually and fetch the location details.
 const InputLocation = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -15,45 +17,55 @@ const InputLocation = () => {
   const [suggestions, setSuggestions] = useState([]);
 
   const fetchSuggestions = async (query) => {
+    // Fetch address suggestions using Google Places API
     if (!query) {
       setSuggestions([]);
       return;
     }
 
     try {
+      // Fetch address suggestions using Google Places API
       const response = await axios.post(import.meta.env.VITE_PROXY_URL, {
         url: fetchInputAddressFromGoogle(query),
       });
 
       if (response.data.status === "OK") {
+        // Set the suggestions in the state
         setSuggestions(response.data.predictions);
       } else {
+        // Handle error
         console.error("Error fetching suggestions:", response.data.status);
       }
     } catch (error) {
+      // Handle error
       console.error("Error fetching suggestions:", error);
     }
   };
 
   const fetchPlaceDetails = async (placeId) => {
+    // Fetch place details using Google Places API
     try {
       const response = await axios.post(import.meta.env.VITE_PROXY_URL, {
         url: fetchPlaceIdDetail(placeId),
       });
 
       if (response.data.status === "OK") {
+        // Set the location in the state
         const { lat, lng } = response.data.result.geometry.location;
         dispatch(setLocation({ latitude: lat, longitude: lng }));
         console.log("Coordinates:", { lat, lng });
       } else {
+        // Handle error
         console.error("Error fetching place details:", response.data.status);
       }
     } catch (error) {
+      // Handle error
       console.error("Error fetching place details:", error);
     }
   };
 
   const handleSelect = (suggestion) => {
+    // Set the selected suggestion in the input field
     setInput(suggestion.description);
     setSuggestions([]);
     fetchPlaceDetails(suggestion.place_id);
