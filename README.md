@@ -2,7 +2,7 @@
 
 ## Web application to find the nearest bp gas station for the user based on the geolocation and applied filters. This is a PWA application that you can use on desktop as well as mobile app
 
-### [Live demo](http://findbp.netlify.com)
+### [Live demo](http://findbp.netlify.app)
 
 ## Features
 
