@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { useTranslation } from "react-i18next";
+
+// Station component displays the details of a gas station.
 const Station = ({ stationData, index, darkMode, handleFav, isFav }) => {
   const { t } = useTranslation();
   const {
@@ -13,6 +15,8 @@ const Station = ({ stationData, index, darkMode, handleFav, isFav }) => {
     latitude,
     longitude,
   } = stationData;
+
+  // Calculate the number of full stars and half stars
   let full_star = 0;
   let half_star = 0;
   if (`${rating}`.split(".").length === 2) {
@@ -32,7 +36,18 @@ const Station = ({ stationData, index, darkMode, handleFav, isFav }) => {
       } rounded-md shadow-lg p-2 gap-4 `}
     >
       <div className="flex flex-row gap-20 items-center justify-between">
-        <div className="font-semibold text-2xl">{title}</div>
+        <div
+          className={`font-semibold text-2xl bg-[#007F00] p-2 rounded-md text-white cursor-pointer`}
+        >
+          <a
+            href={`https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`}
+            target="_blank"
+            rel="noreferrer"
+            className="text-inherit no-underline"
+          >
+            {title}
+          </a>
+        </div>
         <div className="flex flex-row justify-center items-center gap-5">
           <div
             data-testid="favIcon"

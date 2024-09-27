@@ -1,3 +1,5 @@
+// Google Maps API Key URLs
+
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
 export const fetchAddressFromGoogle = (latitude, longitude) => {

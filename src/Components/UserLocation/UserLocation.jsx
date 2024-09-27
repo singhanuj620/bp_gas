@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserLocation, InputLocation } from "../index";
 import { useSelector } from "react-redux";
+
+// UserLocation component displays the BrowserLocation and InputLocation components side by side.
 const UserLocation = () => {
   const { isDarkMode: darkMode } = useSelector((state) => state.darkMode);
   return (

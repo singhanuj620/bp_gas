@@ -4,6 +4,7 @@ const initialState = {
   stationDataList: stationDataList,
 };
 
+// stationDataSlice is a slice of the Redux store that contains the stationData state and actions to update the stationData.
 export const stationDataSlice = createSlice({
   name: "stationData",
   initialState,

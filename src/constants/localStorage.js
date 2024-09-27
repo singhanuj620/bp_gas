@@ -1,1 +1,2 @@
-export const favoriteBPStations = 'favoriteBPStations';
+// LocalStorage keys
+export const favoriteBPStations = "favoriteBPStations";

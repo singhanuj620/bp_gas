@@ -7,6 +7,8 @@ import { toggleMode, changeRadius } from "../../features/filters/filtersSlice";
 import { setpath } from "../../features/path/pathSlice";
 import { allRoutes } from "../../constants/allRoutes";
 import { useTranslation } from "react-i18next";
+
+// Homepage component is the main component that displays the user's location and allows them to apply filters and search for gas stations.
 const Homepage = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -28,6 +30,7 @@ const Homepage = () => {
       </div>
       {addMoreFilters && <AddFilters />}
       <div className={`${addMoreFilters && "opacity-50"}`}>
+        {/* Choose radius from given options */}
         <div className="flex flex-col gap-2 justify-start items-start">
           <div className="flex flex-row gap-2 justify-center items-center">
             <div className={`${darkMode && "text-white"}`}>
@@ -35,7 +38,7 @@ const Homepage = () => {
             </div>
             <div className="flex flex-row gap-5">
               <div
-                className={`${radius === 0.5 && "bg-gray-700 text-white "} ${
+                className={`${radius === 0.5 && "bg-[#007F00] text-white "} ${
                   darkMode && "text-white"
                 } rounded-md p-2 cursor-pointer`}
                 onClick={() => dispatch(changeRadius(0.5))}
@@ -43,7 +46,7 @@ const Homepage = () => {
                 0.5
               </div>
               <div
-                className={`${radius === 1 && "bg-gray-700 text-white"} ${
+                className={`${radius === 1 && "bg-[#007F00] text-white"} ${
                   darkMode && "text-white"
                 } rounded-md p-2 cursor-pointer`}
                 onClick={() => dispatch(changeRadius(1))}
@@ -51,7 +54,7 @@ const Homepage = () => {
                 1
               </div>
               <div
-                className={`${radius === 5 && "bg-gray-700 text-white"} ${
+                className={`${radius === 5 && "bg-[#007F00] text-white"} ${
                   darkMode && "text-white"
                 } rounded-md p-2 cursor-pointer`}
                 onClick={() => dispatch(changeRadius(5))}
@@ -62,6 +65,7 @@ const Homepage = () => {
           </div>
 
           <Button onClick={() => dispatch(toggleMode())}>
+            {/* Show appropriate button text based on applied filter */}
             {filters.open24 ||
             filters.hotFood ||
             filters.convinienceStore ||

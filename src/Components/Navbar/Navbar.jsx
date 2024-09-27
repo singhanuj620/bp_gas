@@ -5,6 +5,7 @@ import { toggleMode } from "../../features/darkMode/darkModeSlice";
 import { setpath } from "../../features/path/pathSlice";
 import { allRoutes } from "../../constants/allRoutes";
 
+// Navbar component displays the navigation bar with options to change theme, language, and view favorites.
 const Navbar = () => {
   const { isDarkMode: darkMode } = useSelector((state) => state.darkMode);
   const { t, i18n } = useTranslation();
@@ -12,6 +13,7 @@ const Navbar = () => {
   const currentLanguage = i18n.language;
 
   const handleLanguageChange = (lang) => {
+    // Change the language using i18n
     i18n.changeLanguage(lang);
   };
   return (
@@ -70,7 +72,7 @@ const Navbar = () => {
             <select
               defaultValue={currentLanguage}
               className={`border-none outline-none cursor-pointer ml-2 ${
-                darkMode ? "bg-black text-white" : "bg-white text-black"
+                darkMode ? "bg-black text-white" : "bg-slate-200 text-black"
               }`}
               onChange={(e) => handleLanguageChange(e.target.value)}
             >
@@ -78,14 +80,14 @@ const Navbar = () => {
                 data-testid="en"
                 value="en"
                 className={`${
-                  darkMode ? "bg-black text-white" : "bg-white text-black"
+                  darkMode ? "bg-black text-white" : "bg-slate-200 text-black"
                 }`}
               >
                 English
               </option>
               <option
                 value="de"
-                className="bg-white text-black"
+                className="bg-slate-200 text-black"
                 data-testid="de"
               >
                 German
