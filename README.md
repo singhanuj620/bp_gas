@@ -8,10 +8,21 @@
 
 - PWA Support
 - Geolocation-based search
-- Filter by amenities (e.g., open 24/7, has conveinence store, store serves hot food, accept bp fuel cards)
+- Filter by amenities (e.g., open 24/7, has a convenience store, the store serves hot food, accepts bp fuel cards)
 - Dark Mode
 - User-friendly interface
-- Bookmark fav gas staion
+- Bookmark your favorite gas station
+
+## Technology/Tools Used
+
+- Javascript
+- ReactJS
+- Redux ToolKit
+- Axios
+- Google Maps API
+- Tailwind CSS
+- Jest
+- React Testing Library
 
 ## Installation
 
